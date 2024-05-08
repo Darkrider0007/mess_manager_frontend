@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import { getUser } from './api/auth';
@@ -11,6 +11,8 @@ import { addMessMembers } from './store/features/mess/messMembersSlice';
 
 export default function App() {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		getUser()
 			.then((userData) => {
@@ -38,6 +40,9 @@ export default function App() {
 				} else {
 					dispatch(login());
 				}
+			})
+			.catch(() => {
+				navigate('/login');
 			})
 			.finally(() => {});
 	}, []);
