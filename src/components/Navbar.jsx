@@ -97,14 +97,7 @@ function Navbar() {
 							);
 						})}
 					</div>
-					{/* <div className='  text-gray-500 flex justify-center items-center cursor-pointer'>
-						<input
-							type='text'
-							placeholder='Search'
-							className='bg-gray-700 p-2 rounded-lg text-white '
-						/>
-						<AiOutlineSearch className='text-white ml-2 text-4xl shrink-0 hover:bg-white hover:text-gray-700 rounded-full p-2' />
-					</div> */}
+
 					<div className='sm:hidden z-10 '>
 						<Hamburger
 							toggled={isOpen}
