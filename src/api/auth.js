@@ -43,7 +43,7 @@ export const userSignup = async (user) => {
 export const userLogin = async (email, password) => {
 	try {
 		const response = await axios.post(
-			'/api/v1/users/login',
+			'https://mess-manager-backend-1.onrender.com/api/v1/users/login',
 			{
 				email,
 				password,
@@ -60,9 +60,12 @@ export const userLogin = async (email, password) => {
 
 export const getUser = async () => {
 	try {
-		const response = await axios.get('/api/v1/users/getCurrentUser', {
-			withCredentials: true,
-		});
+		const response = await axios.get(
+			'https://mess-manager-backend-1.onrender.com/api/v1/users/getCurrentUser',
+			{
+				withCredentials: true,
+			}
+		);
 		return response.data.data;
 	} catch (error) {
 		console.log('An error occurred while fetching user data:', error);
@@ -87,9 +90,12 @@ export const getUser = async () => {
 
 export const getUserById = async (userId) => {
 	try {
-		const response = await axios.get(`/api/v1/users/getUserById/${userId}`, {
-			withCredentials: true,
-		});
+		const response = await axios.get(
+			`https://mess-manager-backend-1.onrender.com/api/v1/users/getUserById/${userId}`,
+			{
+				withCredentials: true,
+			}
+		);
 		return response.data;
 	} catch (error) {
 		return error.response.data;

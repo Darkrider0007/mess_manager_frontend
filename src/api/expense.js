@@ -41,7 +41,7 @@ export const updateTransaction = async (
 ) => {
 	try {
 		const response = await axios.patch(
-			`/api/v1/expanses/update-expanse/${transactionId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/expanses/update-expanse/${transactionId}`,
 			{
 				expanseFor,
 				amount,
@@ -60,7 +60,7 @@ export const updateTransaction = async (
 export const deleteExpenseById = async (transactionId) => {
 	try {
 		const response = await axios.delete(
-			`/api/v1/expanses/delete-expanse/${transactionId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/expanses/delete-expanse/${transactionId}`,
 			{
 				withCredentials: true,
 			}

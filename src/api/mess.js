@@ -13,9 +13,12 @@ export const getMessesById = async (userId) => {
 
 export const getMess = async () => {
 	try {
-		const response = await axios.get('/api/v1/users/getEnrolledMesses', {
-			withCredentials: true,
-		});
+		const response = await axios.get(
+			'https://mess-manager-backend-1.onrender.com/api/v1/users/getEnrolledMesses',
+			{
+				withCredentials: true,
+			}
+		);
 		return response.data;
 	} catch (error) {
 		console.log('An error occurred while fetching mess data:', error);
@@ -41,7 +44,7 @@ export const getMess = async () => {
 export const getMessMembers = async (messId) => {
 	try {
 		const response = await axios.get(
-			`/api/v1/mess/get-mess-members-info/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/get-mess-members-info/${messId}`,
 			{
 				withCredentials: true,
 			}
@@ -57,7 +60,7 @@ export const updateMessLogo = async (messId, data) => {
 		const formData = new FormData();
 		formData.append('messLogo', data, data.name);
 		const response = await axios.patch(
-			`/api/v1/mess/update-mess-logo/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/update-mess-logo/${messId}`,
 			formData,
 			{
 				withCredentials: true,
@@ -72,7 +75,7 @@ export const updateMessLogo = async (messId, data) => {
 export const updateMessInfo = async (messId, data) => {
 	try {
 		const response = await axios.patch(
-			`/api/v1/mess/update-mess-info/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/update-mess-info/${messId}`,
 			data,
 			{
 				withCredentials: true,
@@ -87,7 +90,7 @@ export const updateMessInfo = async (messId, data) => {
 export const changeMessAdmin = async (messId, data) => {
 	try {
 		const response = await axios.patch(
-			`/api/v1/mess/update-mess-admin/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/update-mess-admin/${messId}`,
 			{
 				newAdminId: data.value,
 			},
@@ -104,7 +107,7 @@ export const changeMessAdmin = async (messId, data) => {
 export const addNewMember = async (messId, data) => {
 	try {
 		const response = await axios.post(
-			`/api/v1/mess/add-member-to-mess/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/add-member-to-mess/${messId}`,
 			{ email: data.email },
 			{
 				withCredentials: true,
@@ -120,7 +123,7 @@ export const removeMember = async (messId, data) => {
 	try {
 		const memberId = data.value.toString();
 		const response = await axios.patch(
-			`/api/v1/mess/remove-member-from-mess/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/remove-member-from-mess/${messId}`,
 			{ memberId },
 			{
 				withCredentials: true,
@@ -135,7 +138,7 @@ export const removeMember = async (messId, data) => {
 export const addMessItem = async (messId, data) => {
 	try {
 		const response = await axios.patch(
-			`/api/v1/mess/add-mess-menu/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/add-mess-menu/${messId}`,
 			{ menu: data.newMenu },
 			{
 				withCredentials: true,
@@ -150,7 +153,7 @@ export const addMessItem = async (messId, data) => {
 export const removeMessItem = async (messId, data) => {
 	try {
 		const response = await axios.patch(
-			`/api/v1/mess/remove-mess-menu/${messId}`,
+			`https://mess-manager-backend-1.onrender.com/api/v1/mess/remove-mess-menu/${messId}`,
 			{ menu: data.toString() },
 			{
 				withCredentials: true,
