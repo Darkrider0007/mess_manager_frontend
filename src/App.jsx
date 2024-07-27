@@ -42,7 +42,7 @@ export default function App() {
 				}
 			})
 			.catch(() => {
-				navigate('/login');
+				// navigate('/login');
 			})
 			.finally(() => {});
 	}, []);
